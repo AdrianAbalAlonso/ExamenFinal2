@@ -1,22 +1,25 @@
 package examenfinalparte2;
 
+import javax.swing.JOptionPane;
+
 public class Principal {
 
 //esta variable es la que si dice :-si el numero es par no lo muestro , pero si es impar , sí
     public static boolean mostrarPrimos = false;
 
     public static void main(String arg[]) {
-        int dig = 2;
-        int ndig = 0;
-        //si el numero es 0 o menor que 0 , el usuario debera introducir un valor valido
-        if (dig <= 0) {
+        // no tiene lógica que inicializemos a 2 la variable int dig = 2;
+       int digito = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un numero de digitos correcto (mayor que 0): "));;
+        int numDigitos = 0;
+        //el usuario debe introducir un valor mayor que 0
+        if (digito <= 0) {
             System.out.println("Ingrese como parámetro, un numero de digitos correcto (mayor que 0): ");
         }
-        CondicionesParaQueSeaPrimo(dig);
+        CondicionesParaQueSeaPrimo(digito);
     }
-
-    private static void CondicionesParaQueSeaPrimo(int dig) {
-        int ndig;
+//introduzco en un metodo el bucle
+    private static void CondicionesParaQueSeaPrimo(int digito) {
+        int numDigitos;
         for (int i = 1; i <= 99999; i++) {
             int aux = i;
 
@@ -26,9 +29,9 @@ public class Principal {
                 aux = aux / 10;
                 contador++;
             }
-            ndig = contador;
+            numDigitos = contador;
 
-            if (ndig == dig) {
+            if (numDigitos == digito) {
                 if (i < 4) {
                     mostrarPrimos = true;
                 } else {
